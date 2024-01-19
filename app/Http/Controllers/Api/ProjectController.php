@@ -23,6 +23,10 @@ class ProjectController extends Controller
     public function show($slug)
     {
         //$projects = Project::find($id);
+
+        //EAGER LOADING
+        //$projects = Project::with(['category', 'technologies'])->paginate(3);
+
         $projects = Project::where('slug', $slug)->with(['category', 'technologies'])->first();
         return response()->json(
             [
