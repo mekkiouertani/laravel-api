@@ -57,12 +57,15 @@ if (sidebarToggle) {
 
 /*  */
 const previewImage = document.getElementById("image");
-previewImage.addEventListener("change", (event) => {
-    var oFReader = new FileReader();
-    oFReader.readAsDataURL(previewImage.files[0]);
+if (previewImage) {
+    previewImage.addEventListener("change", (event) => {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(previewImage.files[0]);
 
-    oFReader.onload = function (oFREvent) {
-        //console.log(oFREvent);
-        document.getElementById("uploadPreview").src = oFREvent.target.result;
-    };
-});
+        oFReader.onload = function (oFREvent) {
+            //console.log(oFREvent);
+            document.getElementById("uploadPreview").src =
+                oFREvent.target.result;
+        };
+    });
+}

@@ -5,11 +5,21 @@
         <form action="{{ route('admin.projects.update', $project->slug) }}" enctype="multipart/form-data" method="POST">
             @csrf
             @method('PUT')
+            {{-- TITLE --}}
             <div class="mb-3">
                 <label for="title">Title</label>
                 <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="title"
                     required value="{{ old('title', $project->title) }}">
                 @error('title')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            {{-- URL --}}
+            <div class="mb-3">
+                <label for="url">Link Github</label>
+                <input type="text" class="form-control @error('url') is-invalid @enderror" name="url" id="url"
+                    value="{{ old('url', $project->url) }}">
+                @error('url')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
@@ -68,6 +78,15 @@
                     <input type="file" class="form-control @error('image') is-invalid @enderror" name="image"
                         id="image" value="{{ old('image', $project->image) }}">
                     @error('image')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+                {{-- GIF --}}
+                <div class="mb-3">
+                    <label for="gif">GIF</label>
+                    <input type="file" class="form-control @error('gif') is-invalid @enderror" name="gif"
+                        id="gif" accept="image/*">
+                    @error('gif')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>

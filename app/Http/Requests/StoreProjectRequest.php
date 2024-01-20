@@ -27,6 +27,8 @@ class StoreProjectRequest extends FormRequest
             'image' => ['nullable', 'image', 'mimes:png,jpg,jpeg,gif'],
             'category_id' => ['nullable',],
             'technologies' => ['nullable',],
+            'gif' => ['nullable',],
+            'url' => ['nullable',]
         ];
     }
     public function messages()
@@ -38,6 +40,7 @@ class StoreProjectRequest extends FormRequest
             'title.max' => 'Il titolo non deve superare i :max caratteri',
             'image.url' => 'Il link immagine non è valido',
             'image.image' => 'L\'immagine deve essere un\'immagine',
+
             //'image.max' => 'L\'immagine deve essere massimo :max MB',
         ];
     }

@@ -48,6 +48,10 @@ class ProjectController extends Controller
             $path = Storage::put('images', $formData['image']);
             $formData['image'] = $path;
         }
+        if ($request->hasFile('gif')) {
+            $path = Storage::put('gifs', $formData['gif']);
+            $formData['gif'] = $path;
+        }
         //dd($path);
 
         $project = Project::create($formData);
@@ -95,6 +99,13 @@ class ProjectController extends Controller
             }
             $path = Storage::put('images', $request->image);
             $formData['image'] = $path;
+        }
+        if ($request->hasFile('gif')) {
+            if ($project->gif) {
+                Storage::delete($project->gif);
+            }
+            $path = Storage::put('gifs', $formData['gif']);
+            $formData['gif'] = $path;
         }
 
         $project->update($formData);

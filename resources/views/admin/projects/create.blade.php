@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
     <section class="container">
-        <h1>Projects Create</h1>
+        <h2>Projects Create</h2>
         <form action="{{ route('admin.projects.store') }}" enctype="multipart/form-data" method="POST">
             @csrf
             {{-- TITLE --}}
@@ -10,6 +10,14 @@
                 <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="title"
                     required maxlength="200" minlength="3">
                 @error('title')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            {{-- URL --}}
+            <div class="mb-3">
+                <label for="url">Link Github</label>
+                <input type="text" class="form-control @error('url') is-invalid @enderror" name="url" id="url">
+                @error('url')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
@@ -63,12 +71,21 @@
             <div>
                 <img id="uploadPreview" width="100" src="https://via.placeholder.com/300x200" alt="preview">
             </div>
-            {{--  --}}
+            {{-- IMAGE --}}
             <div class="mb-3">
                 <label for="image">Image</label>
                 <input type="file" class="form-control @error('image') is-invalid @enderror" name="image"
                     id="image" accept="image/*">
                 @error('image')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            {{-- GIF --}}
+            <div class="mb-3">
+                <label for="gif">GIF</label>
+                <input type="file" class="form-control @error('gif') is-invalid @enderror" name="gif" id="gif"
+                    accept="image/*">
+                @error('gif')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>

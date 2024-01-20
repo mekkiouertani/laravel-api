@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
     <section class="container">
         <h1>technologies Edit {{ $technology->name }} </h1>

@@ -9,6 +9,9 @@ $fa-font-path: "../fonts/webfonts" !default;
 
 @import '~bootstrap/scss/bootstrap';
 
+body{
+    background-color: $primary-light;
+}
 h1 {
     color: $text-color;
 }
@@ -21,8 +24,38 @@ i{
     font-weight: bold !important;
     border-bottom: 1px solid red !important;
 }
+.sec-col{
+    color: $secondary-color;
+}
 
+.sec-bg{
+    background-color: $secondary-color;
+}
 
+.prim-bg{
+    background-color: $primary-dark;
+}
+.box-s{
+  box-shadow: $shadow-box;
+}
+.text-sha{
+    text-shadow: 5px 5px 10px black;
+}
+.box-image{
+    border-radius: 20px ;
+    overflow: hidden;
+    width: 100%;
+    background: #e0e0e0;
+box-shadow: $shadow-box;
+    img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+.height-row{
+height: 500px;
+}
 #circle-image{
     width: 50px;
     height: 50px;
@@ -34,6 +67,53 @@ i{
         object-fit: cover;
     }
 }
+/* BTNN */
+.btnnn {
+    padding: 1rem 2rem;
+    font-weight: 700;
+    background: rgb(255, 255, 255);
+
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    transition-duration: 1s;
+    transition-property: border-top,
+       border-left,
+       border-bottom,
+       border-right,
+       box-shadow;
+   }
+   /* btnn delete */
+   .btnnn-delete{
+    color: blueviolet;
+    border-radius: .5rem;
+    border-bottom: 2px solid blueviolet;
+    border-right: 2px solid blueviolet;
+    &:hover{
+        border-top: 2px solid blueviolet;
+        border-left: 2px solid blueviolet;
+        border-bottom: 2px solid rgb(238, 103, 238);
+        border-right: 2px solid rgb(238, 103, 238);
+        box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px;
+    }
+   }
+   /* btn edit */
+  .btnnn-edit{
+    a{
+        color: $secondary-color;
+    }
+
+    border-radius: .5rem;
+    border-bottom: 2px solid $secondary-color;
+    border-right: 2px solid $secondary-color;
+    &:hover{
+        border-top: 2px solid $secondary-color;
+        border-left: 2px solid $secondary-color;
+        border-bottom: 2px solid rgb(255, 219, 142);
+        border-right: 2px solid rgb(255, 219, 142);
+        box-shadow: rgba(246, 177, 122, 0.4) 5px 5px, rgba(246, 177, 122, 0.3) 10px 10px, rgba(246, 177, 122, 0.2) 15px 15px;
+    }
+   }
+
 
 /* TEMPLATE SCSS */
 .fixed-top, .sb-nav-fixed #layoutSidenav #layoutSidenav_nav, .sb-nav-fixed .sb-topnav {
