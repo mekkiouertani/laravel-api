@@ -11,7 +11,7 @@ class StoreCategoryRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,14 @@ class StoreCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => ['required', 'unique:technologies']
+        ];
+    }
+    public function message()
+    {
+        return [
+            'name.required' => 'Il nome è obbligatorio',
+            'name.unique' => 'Questo nome esiste già'
         ];
     }
 }

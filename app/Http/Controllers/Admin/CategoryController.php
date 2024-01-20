@@ -15,6 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
+
         $categories = Category::all();
         return view('admin.categories.index', compact('categories'));
     }
@@ -32,7 +33,12 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        //
+        $formData = $request->validated();
+
+        $slug = Str::of($formData['name'])->slug('-');
+        $formData['slug'] = $slug;
+        $category = Category::create($formData);
+        return redirect('admin.categories.show', $category->slug);
     }
 
     /**
@@ -56,7 +62,12 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+        $formData = $request->validated();
+        //$formData['slug'] = $category->slug;
+        $slug = Str::of($formData['name'])->slug('-');
+        $formData['slug'] = $slug;
+        $category = Category::create($formData);
+        return redirect('admin.categories.show', $category->slug);
     }
 
     /**

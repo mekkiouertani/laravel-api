@@ -44,7 +44,7 @@
             <div class="mb-3">
                 <label for="body">Body</label>
                 <textarea type="text" class="form-control @error('body') is-invalid @enderror" name="body" id="body" required
-                    maxlength="200" minlength="3">
+                    minlength="3">
                     {{ old('body') }}
                 </textarea>
                 @error('body')
