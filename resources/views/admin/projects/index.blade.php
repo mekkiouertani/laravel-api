@@ -39,8 +39,8 @@
                 @endforeach
             </tbody>
         </table>
-        <button class="btn btn-primary mt-3">
-            <a class="text-white text-decoration-none" href="{{ route('admin.projects.create') }}">Create</a>
+        <button class="btnnn btnnn-edit mt-3">
+            <a class="text-secondary text-decoration-none" href="{{ route('admin.projects.create') }}">Create</a>
         </button>
     </section>
     @include('partials.modal_delete')

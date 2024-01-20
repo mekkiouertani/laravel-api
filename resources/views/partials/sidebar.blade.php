@@ -5,44 +5,47 @@
                 <div class="sb-sidenav-menu-heading">Core</div>
                 <a class="nav-link" href="{{ route('admin.dashboard') }}">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                    Dashboard
+                    <h6 class="nav-t mt-2 {{ request()->is('admin') ? 'active' : '' }}">Dashboard</h6>
                 </a>
                 <div class="sb-sidenav-menu-heading">Resources</div>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePosts"
                     aria-expanded="false" aria-controls="collapsePosts">
-                    <div class="sb-nav-link-icon"><i class="fa-solid fa-file"></i></div>
-                    Projects
+                    <div class="sb-nav-link-icon  "><i class="fa-solid fa-file"></i></div>
+                    <h6 class="nav-t mt-2 {{ request()->is('admin/projects*') ? 'active' : '' }}">Projects</h6>
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
                 <div class="collapse" id="collapsePosts" aria-labelledby="headingOne"
                     data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{ route('admin.projects.index') }}">All projects</a>
+                        <a class="nav-link {{ request()->is('admin/projects*') ? 'active' : '' }}"
+                            href="{{ route('admin.projects.index') }}">All projects</a>
                         <a class="nav-link" href="{{ route('admin.projects.create') }}">Create new project</a>
                     </nav>
                 </div>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                     data-bs-target="#collapseCategories" aria-expanded="false" aria-controls="collapseCategories">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-list"></i></div>
-                    Types
+                    <h6 class="nav-t mt-2 {{ request()->is('admin/categories*') ? 'active' : '' }}">Types</h6>
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
                 <div class="collapse" id="collapseCategories" aria-labelledby="headingOne"
                     data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{ route('admin.categories.index') }}">All types</a>
+                        <a class="nav-link mt-2 {{ request()->is('admin/categories*') ? 'active' : '' }}"
+                            href="{{ route('admin.categories.index') }}">All types</a>
                         <a class="nav-link" href="{{ route('admin.categories.create') }}">Create new type</a>
                     </nav>
                 </div>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseTags"
                     aria-expanded="false" aria-controls="collapseTags">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-tag"></i></i></div>
-                    Technoogy
+                    <h6 class="nav-t {{ request()->is('admin/technologies*') ? 'active' : '' }}">Technology</h6>
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
                 <div class="collapse" id="collapseTags" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{ route('admin.technologies.index') }}">All Technologies</a>
+                        <a class="nav-link  {{ request()->is('admin/technologies*') ? 'active' : '' }}"
+                            href="{{ route('admin.technologies.index') }}">All Technologies</a>
                         <a class="nav-link" href="{{ route('admin.technologies.create') }}">Create new technology</a>
                     </nav>
                 </div>

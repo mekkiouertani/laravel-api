@@ -22,7 +22,14 @@ i{
 
 .nav-link.active {
     font-weight: bold !important;
-    border-bottom: 1px solid red !important;
+    border-bottom: 1px solid $secondary-color !important;
+}
+.nav-t.active{
+    color: $secondary-color;
+
+}
+.w-10{
+    width: 180px !important;
 }
 .sec-col{
     color: $secondary-color;
