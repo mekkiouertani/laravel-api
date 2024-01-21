@@ -17,9 +17,10 @@
                 <div class="collapse" id="collapsePosts" aria-labelledby="headingOne"
                     data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link {{ request()->is('admin/projects*') ? 'active' : '' }}"
+                        <a class="nav-link {{ request()->is('admin/projects') ? 'active' : '' }}"
                             href="{{ route('admin.projects.index') }}">All projects</a>
-                        <a class="nav-link" href="{{ route('admin.projects.create') }}">Create new project</a>
+                        <a class="nav-link {{ request()->is('admin/projects/create') ? 'active' : '' }}"
+                            href="{{ route('admin.projects.create') }}">Create new project</a>
                     </nav>
                 </div>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -31,22 +32,24 @@
                 <div class="collapse" id="collapseCategories" aria-labelledby="headingOne"
                     data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link mt-2 {{ request()->is('admin/categories*') ? 'active' : '' }}"
+                        <a class="nav-link mt-2 {{ request()->is('admin/categories') ? 'active' : '' }}"
                             href="{{ route('admin.categories.index') }}">All types</a>
-                        <a class="nav-link" href="{{ route('admin.categories.create') }}">Create new type</a>
+                        <a class="nav-link {{ request()->is('admin/categories/create') ? 'active' : '' }}""
+                            href="{{ route('admin.categories.create') }}">Create new type</a>
                     </nav>
                 </div>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseTags"
                     aria-expanded="false" aria-controls="collapseTags">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-tag"></i></i></div>
-                    <h6 class="nav-t {{ request()->is('admin/technologies*') ? 'active' : '' }}">Technology</h6>
+                    <h6 class="nav-t {{ request()->is('admin/technologies') ? 'active' : '' }}">Technology</h6>
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
                 <div class="collapse" id="collapseTags" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link  {{ request()->is('admin/technologies*') ? 'active' : '' }}"
+                        <a class="nav-link  {{ request()->is('admin/technologies') ? 'active' : '' }}"
                             href="{{ route('admin.technologies.index') }}">All Technologies</a>
-                        <a class="nav-link" href="{{ route('admin.technologies.create') }}">Create new technology</a>
+                        <a class="nav-link {{ request()->is('admin/technologies/create') ? 'active' : '' }}""
+                            href="{{ route('admin.technologies.create') }}">Create new technology</a>
                     </nav>
                 </div>
                 {{--  --}}
@@ -114,9 +117,12 @@
                 </a> --}}
             </div>
         </div>
-        <div class="sb-sidenav-footer">
-            <div class="small">Logged in as:</div>
-            {{ Auth::user()->name }}
-        </div>
+        @if (Auth::user())
+            <div class="sb-sidenav-footer">
+                <div class="small">Logged in as:</div>
+                {{ Auth::user()->name }}
+            </div>
+        @endif
+
     </nav>
 </div>

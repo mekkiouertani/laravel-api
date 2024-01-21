@@ -26,12 +26,12 @@
             {{-- FORM GROUP --}}
             <div class="mb-3">
                 <div class="form-group">
-                    <h6>Select Technlogies</h6>
+                    <h6>Select Technologies</h6>
                     @foreach ($technologies as $tech)
-                        <div class="form-check  @error('technologies') is-invalid @enderror">
+                        <div class="form-check @error('technologies') is-invalid @enderror">
                             <input type="checkbox" class="form-check-input" name="technologies[]"
                                 value="{{ $tech->id }}"
-                                {{ in_array($tech->id, old('technologies', [])) ? 'checked' : '' }}>
+                                {{ in_array($tech->id, old('technologies', $project->technologies->pluck('id')->toArray())) ? 'checked' : '' }}>
                             <label class="form-check-label">
                                 {{ $tech->name }}
                             </label>
@@ -42,6 +42,7 @@
                     @enderror
                 </div>
             </div>
+
             {{-- DESCRIPTION --}}
             <div class="mb-3">
                 <label for="body">Body</label>
@@ -61,38 +62,39 @@
                     <option value="">Select a category</option>
                     @foreach ($categories as $category)
                         <option value="{{ $category->id }}"
-                            {{ old('category_id', $project->category_id) == 'category_id' ? 'selected' : '' }}>
+                            {{ old('category_id', $project->category_id) == $category->id ? 'selected' : '' }}>
                             {{ $category->name }}
                         </option>
                     @endforeach
                 </select>
-                {{-- PREVIEW  --}}
-                <div class="mt-5">
-                    <img id="uploadPreview" width="100"
-                        src="{{ old('image', $project->image ? asset('storage/' . $project->image) : 'https://via.placeholder.com/300x200') }}"
-                        alt="preview">
-                </div>
-                {{-- IMAGE --}}
-                <div class="mb-3">
-                    <label for="image">Image</label>
-                    <input type="file" class="form-control @error('image') is-invalid @enderror" name="image"
-                        id="image" value="{{ old('image', $project->image) }}">
-                    @error('image')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-                {{-- GIF --}}
-                <div class="mb-3">
-                    <label for="gif">GIF</label>
-                    <input type="file" class="form-control @error('gif') is-invalid @enderror" name="gif"
-                        id="gif" accept="image/*">
-                    @error('gif')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-                {{-- BUTTONS --}}
-                <button type="submit" class="btn btn-success">Submit</button>
-                <button type="reset" class="btn btn-primary">Reset</button>
+            </div>
+            {{-- PREVIEW  --}}
+            <div class="mt-5">
+                <img id="uploadPreview" width="100"
+                    src="{{ old('image', $project->image ? asset('storage/' . $project->image) : 'https://via.placeholder.com/300x200') }}"
+                    alt="preview">
+            </div>
+            {{-- IMAGE --}}
+            <div class="mb-3">
+                <label for="image">Image</label>
+                <input type="file" class="form-control @error('image') is-invalid @enderror" name="image"
+                    id="image" value="{{ old('image', $project->image) }}">
+                @error('image')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            {{-- GIF --}}
+            <div class="mb-3">
+                <label for="gif">GIF</label>
+                <input type="file" class="form-control @error('gif') is-invalid @enderror" name="gif" id="gif"
+                    accept="image/*">
+                @error('gif')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            {{-- BUTTONS --}}
+            <button type="submit" class="btn btn-success">Submit</button>
+            <button type="reset" class="btn btn-primary">Reset</button>
         </form>
     </section>
 @endsection

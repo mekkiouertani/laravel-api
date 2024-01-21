@@ -39,6 +39,7 @@
                 @endforeach
             </tbody>
         </table>
+        {{ $projects->links('vendor.pagination.bootstrap-5') }}
         <button class="btnnn btnnn-edit mt-3">
             <a class="text-secondary text-decoration-none" href="{{ route('admin.projects.create') }}">Create</a>
         </button>
