@@ -26,7 +26,7 @@
             <div class="mb-3">
                 <div class="form-group mt-5">
                     <h5>Select Technologies:</h5>
-                    <div class="row mt-3"> <!-- Aggiungi questa riga -->
+                    <div class="row mt-3">
                         @foreach ($technologies as $tech)
                             <div class="col"> <!-- Colonna per ogni checkbox -->
                                 <div class="form-check @error('technologies') is-invalid @enderror">
